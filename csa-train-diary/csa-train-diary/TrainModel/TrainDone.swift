@@ -7,12 +7,12 @@
 import Foundation
 import SwiftData
 
-class TrainDone {
-    var doneSets: [TrainSet] = []
-    init(doneSets: [TrainSet]) {
-        self.doneSets = doneSets
-    }
-    init() {
-        self.doneSets = []
+@Model
+class Train {
+    var date: Date
+    var sets: [TrainSet]
+    init(date: Date, sets: [TrainSet]) {
+        self.date = date
+        self.sets = sets
     }
 }

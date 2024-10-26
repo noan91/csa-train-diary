@@ -13,19 +13,16 @@ enum TrainSetCounter: Int {
     case time
 }
 
+@Model
 class TrainSet {
     var exercise: TrainExcercise
     var counter: TrainSetCounter
-    var value: Double
+    var reps: Int
     var intencity: Double? //интенсивность (вес). указывается если в упражнении это указано
-    init(exercise: TrainExcercise, counter: TrainSetCounter, value: Double, intencity: Double = -1) {
+    init(exercise: TrainExcercise, counter: TrainSetCounter, reps: Int, intencity: Double? = nil) {
         self.exercise = exercise
         self.counter = counter
-        self.value = value
-        if self.exercise.weightOn && intencity > 0 {
-          self.intencity = intencity
-        } else {
-            self.intencity = nil
-        }
+        self.reps = reps
+        self.intencity = intencity
     }
 }

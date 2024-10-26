@@ -7,7 +7,6 @@
 import Foundation
 import SwiftData
 
-@Model
 class TrainDone {
     var doneSets: [TrainSet] = []
     init(doneSets: [TrainSet]) {

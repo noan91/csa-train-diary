@@ -8,13 +8,13 @@
 import Foundation
 import SwiftData
 
-enum TrainSetCounter: Int {
-    case reps
-    case time
+enum TrainSetCounter: Int, Codable {
+    case reps = 0
+    case time = 1
 }
 
 @Model
-class TrainSet {
+class TrainSet: Identifiable, Hashable {
     var exercise: TrainExcercise
     var counter: TrainSetCounter
     var reps: Int

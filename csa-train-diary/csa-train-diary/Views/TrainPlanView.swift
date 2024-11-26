@@ -8,11 +8,16 @@
 import SwiftUI
 
 struct TrainPlanView: View {
+    @State var plan: TrainPlan?
     var body: some View {
         Text("TrainPlanView")
+        List(  selection: $plan) {
+            
+        }
     }
 }
 
 #Preview {
-    TrainPlanView()
+
+    TrainPlanView(plan: TrainPlan())
 }

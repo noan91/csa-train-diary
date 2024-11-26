@@ -7,8 +7,6 @@
 
 import Foundation
 
-class TrainPlan {
-    //[weekNumber:[ dayNumber : [trainSet]]
-    var weeks: Int
-    
-}
+typealias TrainDayPlan = [TrainSet]
+typealias TrainWeekPlan = [Int: TrainDayPlan]
+typealias TrainPlan = [TrainWeekPlan]

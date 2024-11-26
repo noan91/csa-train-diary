@@ -31,3 +31,11 @@ class TrainExcercise: Identifiable  {
     }
 
 }
+
+let defaultTrainExcercises: [TrainExcercise] = [
+    TrainExcercise(name: "squat", target: "legs"),
+    TrainExcercise(name: "pull up", target: "back"),
+    TrainExcercise(name: "arm curl", target: "biceps"),
+    TrainExcercise(name: "push up", target: "chest"),
+    TrainExcercise(name: "hack squat", target: "legs"),
+    ]

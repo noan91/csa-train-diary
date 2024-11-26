@@ -14,14 +14,18 @@ struct StepPicker<T: AdditiveArithmetic>: View {
     @State var value: T
     
     var body: some View {
-        HStack{
+        HStack {
             Text(label)
                 .font(.title2)
+            Spacer()
             Button("-") {
                 if !(disabled ?? false) {
                     value -= step
                 }
             }
+            .buttonStyle(.bordered)
+            .tint(.red)
+            .buttonBorderShape(.circle)
             .font(.title2)
             Text("\(value)")
                 .font(.title2)
@@ -31,13 +35,17 @@ struct StepPicker<T: AdditiveArithmetic>: View {
                     value += step
                 }
             }
+            .buttonStyle(.bordered)
+            .tint(.green)
+            .buttonBorderShape(.circle)
             .font(.title2)
         }
+        .padding(.horizontal, 10.0)
     }
 }
 
 
 #Preview {
     StepPicker(label: "one", step: 1, value: 1)
-    StepPicker(label: "two", step: 0.5 , value: 888.0)
+    StepPicker(label: "two long", step: 0.5 , value: 888.0)
 }

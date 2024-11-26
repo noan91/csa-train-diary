@@ -8,37 +8,35 @@
 import SwiftUI
 
 struct TrainSetView: View {
-    var exercises: [TrainExcercise]
     @State var trSet: TrainSet
     var body: some View {
-        VStack {
-            
-            Picker ("excercise", selection: $trSet.exercise) {
-                ForEach(exercises) { ex in
-                    Text(ex.name).tag(ex)
+        VStack (alignment: .leading) {
+            Text(trSet.exercise.name)
+                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                
+            HStack {
+                VStack(alignment: .leading) {
+                    Text("weight:")
+                    Text("\(trSet.intencity)")
+                        .font(/*@START_MENU_TOKEN@*/.title2/*@END_MENU_TOKEN@*/)
                 }
-            }
-            .pickerStyle(.wheel)
-            .frame(height: 120)
-            
-           
-            if trSet.intencity != nil {
-                HStack{
-                    StepPicker(label: "Intencity:", step:0.5, value:  trSet.intencity!)
+                
+                Spacer()
+                VStack (alignment: .leading) {
+                    Text("reps:")
+                    Text("\(trSet.reps)")
+                        .font(/*@START_MENU_TOKEN@*/.title2/*@END_MENU_TOKEN@*/)
                 }
+                
             }
-            StepPicker(label:"Reps:", step: 1, value:  trSet.reps)
-            
         }
-        .buttonStyle(.borderless)
+        .padding(/*@START_MENU_TOKEN@*/.all, 6.0/*@END_MENU_TOKEN@*/)
     }
 }
 
 
 #Preview {
-    let exList: [TrainExcercise] = [TrainExcercise(name: "pull up", target: "back"), TrainExcercise(name: "push up", target: "chest")]
-    let set1 = TrainSet(exercise: TrainExcercise(name: "pull up", target: "back"), counter: .reps, reps: 10, intencity: nil)
-    let set2 = TrainSet(exercise: TrainExcercise(name: "push up", target: "chest"), counter: .reps, reps: 10, intencity: 40)
-    TrainSetView(exercises: exList, trSet: set1)
-    TrainSetView(exercises: exList, trSet: set2)
+    
+    TrainSetView(trSet: defaultTrainSets[0])
+   
 }

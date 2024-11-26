@@ -18,8 +18,8 @@ class TrainSet: Identifiable, Hashable {
     var exercise: TrainExcercise
     var counter: TrainSetCounter
     var reps: Int
-    var intencity: Double? //интенсивность (вес). указывается если в упражнении это указано
-    init(exercise: TrainExcercise, counter: TrainSetCounter, reps: Int, intencity: Double? = nil) {
+    var intencity: Double //интенсивность (вес). указывается если в упражнении это указано
+    init(exercise: TrainExcercise, counter: TrainSetCounter, reps: Int, intencity: Double) {
         self.exercise = exercise
         self.counter = counter
         self.reps = reps
@@ -27,3 +27,23 @@ class TrainSet: Identifiable, Hashable {
     }
 
 }
+
+
+let defaultTrainSets: [TrainSet] = [
+    TrainSet(exercise: defaultTrainExcercises[0], counter: .reps, reps: 5, intencity: 100),
+    TrainSet(exercise: defaultTrainExcercises[1], counter: .reps, reps: 10, intencity: 40),
+    TrainSet(exercise: defaultTrainExcercises[0], counter: .reps, reps: 5, intencity: 100),
+    TrainSet(exercise: defaultTrainExcercises[1], counter: .reps, reps: 10, intencity: 40),
+    TrainSet(exercise: defaultTrainExcercises[2], counter: .reps, reps: 30, intencity: 20),
+    TrainSet(exercise: defaultTrainExcercises[3], counter: .reps, reps: 5, intencity: 10),
+    TrainSet(exercise: defaultTrainExcercises[2], counter: .reps, reps: 30, intencity: 20),
+    TrainSet(exercise: defaultTrainExcercises[3], counter: .reps, reps: 5, intencity: 10),
+    TrainSet(exercise: defaultTrainExcercises[0], counter: .reps, reps: 5, intencity: 100),
+    TrainSet(exercise: defaultTrainExcercises[1], counter: .reps, reps: 10, intencity: 40),
+    TrainSet(exercise: defaultTrainExcercises[0], counter: .reps, reps: 5, intencity: 100),
+    TrainSet(exercise: defaultTrainExcercises[1], counter: .reps, reps: 10, intencity: 40),
+    TrainSet(exercise: defaultTrainExcercises[2], counter: .reps, reps: 30, intencity: 20),
+    TrainSet(exercise: defaultTrainExcercises[3], counter: .reps, reps: 5, intencity: 10),
+    TrainSet(exercise: defaultTrainExcercises[2], counter: .reps, reps: 30, intencity: 20),
+    TrainSet(exercise: defaultTrainExcercises[3], counter: .reps, reps: 5, intencity: 10),
+    ]

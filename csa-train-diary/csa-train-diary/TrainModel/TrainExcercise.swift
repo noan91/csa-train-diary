@@ -22,11 +22,12 @@ let defaultTrainExcerciseTargets  = [
 ]
 
 @Model
-class TrainExcercise {
+class TrainExcercise: Identifiable  {
     var name: String
     var target: TrainExcerciseTarget
     init(name: String, target: TrainExcerciseTarget) {
         self.name = name
         self.target = target
     }
+
 }

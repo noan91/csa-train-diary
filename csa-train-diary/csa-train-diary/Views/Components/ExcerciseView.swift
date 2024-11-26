@@ -8,24 +8,27 @@
 import SwiftUI
 
 struct ExcerciseView: View {
+    var targets: [TrainExcerciseTarget]
     @State var exercise: TrainExcercise
     var body: some View {
         VStack{
-        
+            
             List {
                 TextField("Excercise name", text: $exercise.name)
-                Picker(selection: $exercise.target){
-                    Text("back").tag("back")
-                    Text("legs").tag("legs")
-                    Text("chest").tag("chest")
-                } label: {
-                    Text("\(exercise.target)")
+                Picker ("target", selection: $exercise.target) {
+                    ForEach(targets, id: \.self) { target in
+                        Text(target).tag(target)
+                        
+                        
+                    }
                 }
+                .pickerStyle(.inline)
+                
             }
         }
     }
 }
 
 #Preview {
-    ExcerciseView(exercise: TrainExcercise(name: "pull up", target: "back"))
+    ExcerciseView(targets: defaultTrainExcerciseTargets, exercise: TrainExcercise(name: "pull up", target: "back"))
 }

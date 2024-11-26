@@ -11,12 +11,24 @@ struct TrainView: View {
     @State var train: Train
     var body: some View {
         Text("TrainView")
+
         List {
             ForEach(train.sets.map(\.self)) {set  in
-                TrainSetView(trSet: set)
+                TrainSetView(exercises: [], trSet: set)
             }
         }
-        
+        .toolbar {
+
+            ToolbarItem {
+                Button(action: addSet) {
+                    Label("Add Item", systemImage: "plus")
+                }
+            }
+        }
+        .buttonStyle(BorderlessButtonStyle())
+    }
+    private func addSet() {
+
     }
 }
 

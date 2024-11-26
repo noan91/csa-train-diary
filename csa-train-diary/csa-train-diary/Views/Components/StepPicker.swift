@@ -9,19 +9,29 @@ import SwiftUI
 
 struct StepPicker<T: AdditiveArithmetic>: View {
     var label: String
+    var disabled: Bool?
     @State var step: T
     @State var value: T
     
     var body: some View {
         HStack{
             Text(label)
+                .font(.title2)
             Button("-") {
-                value -= step
+                if !(disabled ?? false) {
+                    value -= step
+                }
             }
+            .font(.title2)
             Text("\(value)")
+                .font(.title2)
+                .frame(width: 60)
             Button("+") {
-                value += step
+                if !(disabled ?? false) {
+                    value += step
+                }
             }
+            .font(.title2)
         }
     }
 }
@@ -29,5 +39,5 @@ struct StepPicker<T: AdditiveArithmetic>: View {
 
 #Preview {
     StepPicker(label: "one", step: 1, value: 1)
-    StepPicker(label: "two", step: 0.5 , value: 11.0)
+    StepPicker(label: "two", step: 0.5 , value: 888.0)
 }

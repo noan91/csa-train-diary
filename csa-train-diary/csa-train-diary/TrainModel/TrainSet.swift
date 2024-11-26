@@ -25,4 +25,5 @@ class TrainSet: Identifiable, Hashable {
         self.reps = reps
         self.intencity = intencity
     }
+
 }

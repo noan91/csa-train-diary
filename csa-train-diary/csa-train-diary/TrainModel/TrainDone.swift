@@ -7,14 +7,9 @@
 import Foundation
 import SwiftData
 
-@Model
-class Train {
+struct Train {
     var date: Date
     var sets: [TrainSet]
-    init(date: Date, sets: [TrainSet]) {
-        self.date = date
-        self.sets = sets
-    }
 }
 
 

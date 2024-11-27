@@ -13,19 +13,18 @@ enum TrainSetCounter: Int, Codable {
     case time = 1
 }
 
-@Model
-class TrainSet: Identifiable, Hashable {
+
+struct TrainSet {
     var exercise: TrainExcercise
     var counter: TrainSetCounter
     var reps: Int
     var intencity: Double //интенсивность (вес). указывается если в упражнении это указано
-    init(exercise: TrainExcercise, counter: TrainSetCounter, reps: Int, intencity: Double) {
-        self.exercise = exercise
-        self.counter = counter
-        self.reps = reps
-        self.intencity = intencity
-    }
+}
 
+extension TrainSet: Identifiable {
+    public var id: UUID {
+        UUID()
+    }
 }
 
 

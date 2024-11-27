@@ -21,15 +21,14 @@ let defaultTrainExcerciseTargets  = [
      "core",
 ]
 
-@Model
-class TrainExcercise: Identifiable  {
+struct TrainExcercise: Hashable  {
+    
     var name: String
     var target: TrainExcerciseTarget
-    init(name: String, target: TrainExcerciseTarget) {
-        self.name = name
-        self.target = target
-    }
+}
 
+extension TrainExcercise: Identifiable {
+    var id: String { name }
 }
 
 let defaultTrainExcercises: [TrainExcercise] = [
